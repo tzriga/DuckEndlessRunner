@@ -49,7 +49,6 @@ public class PlayerController : MonoBehaviour
                 {
                     
                     jump.PlayOneShot(jump.clip, 1.0f);
-
                 }
                 distanceTraveled += gameManager.getObstacleVelocity() * Time.deltaTime;
                 timer.setScore(Mathf.RoundToInt(-1 * distanceTraveled));
@@ -87,7 +86,7 @@ public class PlayerController : MonoBehaviour
         died = true;
         StartCoroutine(waitForSound());
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "PowerUp")
         {
@@ -95,11 +94,14 @@ public class PlayerController : MonoBehaviour
             Destroy(collision.gameObject);
             distanceTraveled -= 100;
         } else if(collision.gameObject.tag == "Obstacle") {
-            
+            Debug.Log("Die");
+            Die();
         }
     }
+
     IEnumerator waitForSound() {
         deathSound.PlayOneShot(deathSound.clip, 1.0f);
+
         yield return new WaitWhile(() => deathSound.isPlaying);
         gameScreen.SetActive(false);
         endScreen.SetActive(true);
