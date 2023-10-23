@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public GameObject gameScreen;
     public GameObject endScreen;
     public AudioSource jump;
+    public AudioSource deathSound;
     private float distanceTraveled;
     public TMPro.TMP_Text scoreText;
     public TMPro.TMP_Text highScoreText;
@@ -59,8 +60,6 @@ public class PlayerController : MonoBehaviour
                 if ((Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0)))
                 {
                     Time.timeScale = 1;
-                    running.Play();
-                    helmet.Play();
                     started = true;
                     timer.StartTimer();
                     gameScreen.SetActive(true);
@@ -86,8 +85,6 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 0;
         started = false;
         died = true;
-        running.Stop();
-        helmet.Stop();
         StartCoroutine(waitForSound());
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -95,20 +92,10 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "PowerUp")
         {
             Debug.Log("Slow Down");
-            int timeDiff = Mathf.Min(timer.getTime() - previousPowerUpTime, 15);
-            if(rb.gravityScale > 0f)
-            {
-                rb.gravityScale -= timeDiff * gravityIncreaseDelta;
-                rb.gravityScale = Mathf.Max(rb.gravityScale, defaultGravity);
-            }
-            else
-            {
-                rb.gravityScale += timeDiff * gravityIncreaseDelta;
-                rb.gravityScale = Mathf.Min(rb.gravityScale, defaultGravity);
-            }
-            // gameManager.DecreaseObstacleVelocity(timeDiff);
             Destroy(collision.gameObject);
             distanceTraveled -= 100;
+        } else if(collision.gameObject.tag == "Obstacle") {
+            
         }
     }
     IEnumerator waitForSound() {
