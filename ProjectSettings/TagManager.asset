@@ -7,6 +7,7 @@ TagManager:
   - Segment
   - Manager
   - Obstacle
+  - Ground
   layers:
   - Default
   - TransparentFX

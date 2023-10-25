@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
+    public float jumpForce;
     private bool grounded = false;
     public GameManager gameManager;
     private bool started = false;
@@ -45,10 +46,17 @@ public class PlayerController : MonoBehaviour
         {
             if (started)
             {
-                if ((Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0)) && grounded)
+                if(Input.GetButton("Jump") || Input.GetMouseButton(0))
                 {
-                    
-                    jump.PlayOneShot(jump.clip, 1.0f);
+                    if(grounded) {
+                        rb.AddForce(new Vector2(0,jumpForce));
+                        jump.PlayOneShot(jump.clip, 1.0f);
+                        grounded = false;
+                    }
+                        
+                } else if(rb.velocity.y > 0){
+                    Debug.Log("2");
+                    rb.velocity = new Vector2(0,0);
                 }
                 distanceTraveled += gameManager.getObstacleVelocity() * Time.deltaTime;
                 timer.setScore(Mathf.RoundToInt(-1 * distanceTraveled));
@@ -56,7 +64,7 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                if ((Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0)))
+                if (Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0))
                 {
                     Time.timeScale = 1;
                     started = true;
@@ -84,26 +92,29 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 0;
         started = false;
         died = true;
-        StartCoroutine(waitForSound());
+        deathSound.PlayOneShot(deathSound.clip, 1.0f);
+        gameScreen.SetActive(false);
+        endScreen.SetActive(true);
+
     }
+
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
+        if(collision.gameObject.tag == "Ground") {
+            grounded = true;
+            Debug.Log("Ground");
+        }
         if(collision.gameObject.tag == "PowerUp")
         {
             Debug.Log("Slow Down");
             Destroy(collision.gameObject);
             distanceTraveled -= 100;
         } else if(collision.gameObject.tag == "Obstacle") {
-            Debug.Log("Die");
             Die();
         }
     }
 
-    IEnumerator waitForSound() {
-        deathSound.PlayOneShot(deathSound.clip, 1.0f);
+   
 
-        yield return new WaitWhile(() => deathSound.isPlaying);
-        gameScreen.SetActive(false);
-        endScreen.SetActive(true);
-    }
 }
