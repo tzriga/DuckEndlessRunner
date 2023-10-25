@@ -59,7 +59,7 @@ public class PlayerController : MonoBehaviour
                     rb.velocity = new Vector2(0,0);
                 }
                 distanceTraveled += gameManager.getObstacleVelocity() * Time.deltaTime;
-                timer.setScore(Mathf.RoundToInt(-1 * distanceTraveled));
+                timer.setScore(Mathf.RoundToInt(-1 * distanceTraveled * 2));
                 gameManager.setCurrentScore(timer.getScore());
             }
             else

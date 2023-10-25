@@ -580,7 +580,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: High Score
+  m_text: 'High Score: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -806,7 +806,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddf8cfc2f9a87ca429b484aba96ad2a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 10000
+  jumpForce: 17000
   gameManager: {fileID: 1180862862}
   timer: {fileID: 716623345}
   startScreen: {fileID: 510204818}
@@ -898,7 +898,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 2
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1360,8 +1360,9 @@ MonoBehaviour:
   - {fileID: 2594396646122309052, guid: 5e31ae18b6e164a28b9d30e2b62eb006, type: 3}
   mediumSegments:
   - {fileID: 2594396646122309052, guid: 5e31ae18b6e164a28b9d30e2b62eb006, type: 3}
+  - {fileID: 6738219349498563617, guid: bc35ccdcaecef4625b36d054312c3ad0, type: 3}
   hardSegments:
-  - {fileID: 2594396646122309052, guid: 5e31ae18b6e164a28b9d30e2b62eb006, type: 3}
+  - {fileID: 6738219349498563617, guid: bc35ccdcaecef4625b36d054312c3ad0, type: 3}
   currentScore: 0
   fixedDeltaTime: 0.001
 --- !u!4 &1180862863
@@ -1887,7 +1888,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Score
+  m_text: 'Score: '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
