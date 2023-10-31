@@ -28,7 +28,7 @@ public class SegmentScript : MonoBehaviour
         {
             if (pos < right - 10 && !spawned)
             {
-                SegmentScript seg = Instantiate(manager.getSegment(), new Vector3(pos + 30, 0, 0), transform.rotation);
+                SegmentScript seg = Instantiate(manager.getSegment(), new Vector3(pos + 29.9f, 0, 0), transform.rotation);
                 seg.GetComponent<Rigidbody2D>().velocity = new Vector2(manager.getObstacleVelocity(), 0);
                 spawned = true;
             }
@@ -37,7 +37,7 @@ public class SegmentScript : MonoBehaviour
         {
             if(!spawned)
             {
-                SegmentScript seg = Instantiate(manager.getSegment(), new Vector3(pos + 30, 0, 0), transform.rotation);
+                SegmentScript seg = Instantiate(manager.getSegment(), new Vector3(pos + 29.9f, 0, 0), transform.rotation);
                 seg.GetComponent<Rigidbody2D>().velocity = new Vector2(manager.getObstacleVelocity(), 0);
                 spawned = true;
             }

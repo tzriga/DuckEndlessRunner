@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
+    public Animator animator;
     public float jumpForce;
     private bool grounded = false;
     public GameManager gameManager;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         Time.timeScale = 0;
         distanceTraveled = 0;
+        animator.SetBool("Grounded",false);
     }
 
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class PlayerController : MonoBehaviour
                         rb.AddForce(new Vector2(0,jumpForce));
                         jump.PlayOneShot(jump.clip, 1.0f);
                         grounded = false;
+                        animator.SetBool("Grounded",false);
                     }
                         
                 } else if(rb.velocity.y > 0){
@@ -103,13 +106,14 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Ground") {
             grounded = true;
+            animator.SetBool("Grounded",true);
             Debug.Log("Ground");
         }
-        if(collision.gameObject.tag == "PowerUp")
+        if(collision.gameObject.tag == "RedBull")
         {
-            Debug.Log("Slow Down");
+            Debug.Log("Red Bull");
             Destroy(collision.gameObject);
-            distanceTraveled -= 100;
+            
         } else if(collision.gameObject.tag == "Obstacle") {
             Die();
         }

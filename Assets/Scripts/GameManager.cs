@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
     private float obstacleVelocity;
     public float defaultVelocity = -5f;
-    public float velocityDelta = 0.5f;
+    public float velocityDivider;
     public List<SegmentScript> easySegments;
     public List<SegmentScript> mediumSegments;
     public List<SegmentScript> hardSegments;
@@ -60,19 +61,25 @@ public class GameManager : MonoBehaviour
         if (Input.GetButtonDown("Cancel")) {
             Application.Quit();
         }
+        IncreaseObstacleVelocity();
+    }
+
+    void FixedUpdate()
+    {
+        IncreaseObstacleVelocity();
     }
 
     public float getObstacleVelocity() {
         return obstacleVelocity;
     }
 
-    public float getVelocityDelta() {
-        return velocityDelta;
+    public float getVelocityDivider() {
+        return velocityDivider;
     }
 
     public void IncreaseObstacleVelocity()
     {
-        obstacleVelocity -= velocityDelta;
+        obstacleVelocity -= Time.deltaTime / velocityDivider;
     }
 
     public void setCurrentScore(int value) {
