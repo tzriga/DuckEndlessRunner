@@ -8,10 +8,12 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     public Animator animator;
     public float jumpForce;
+    public float flyForce;
     private bool grounded = false;
     public GameManager gameManager;
     private bool started = false;
     private bool died = false;
+    private bool flying = false;
     public Timer timer;
     private int previousPowerUpTime = 0;
     public GameObject startScreen;
@@ -22,6 +24,7 @@ public class PlayerController : MonoBehaviour
     private float distanceTraveled;
     public TMPro.TMP_Text scoreText;
     public TMPro.TMP_Text highScoreText;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,9 +46,11 @@ public class PlayerController : MonoBehaviour
             {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
-        }
-        else
-        {
+        } else if(flying) {
+            if((Input.GetButtonDown("Jump") || Input.GetMouseButtonDown(0)) && rb.position.y < 12) {
+                rb.AddForce(new Vector2(0,flyForce));
+            }
+        } else {
             if (started)
             {
                 if(Input.GetButton("Jump") || Input.GetMouseButton(0))
@@ -82,6 +87,7 @@ public class PlayerController : MonoBehaviour
     public void Die()
     {
         Debug.Log("Die");
+        flying = false;
         if (timer.getScore() > timer.getHighScore())
         {
             timer.setHighScore(timer.getScore());
@@ -113,6 +119,9 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Red Bull");
             Destroy(collision.gameObject);
+            flying = true;
+            
+            animator.SetBool("Flying",true);
             
         } else if(collision.gameObject.tag == "Obstacle") {
             Die();
