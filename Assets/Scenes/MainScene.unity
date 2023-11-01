@@ -504,7 +504,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 0248cd7af7de0432ea235d9fc6374690, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1169,6 +1169,8 @@ GameObject:
   - component: {fileID: 1342953688}
   - component: {fileID: 1342953687}
   - component: {fileID: 1342953686}
+  - component: {fileID: 1342953690}
+  - component: {fileID: 1342953689}
   m_Layer: 0
   m_Name: StartScreen
   m_TagString: Untagged
@@ -1261,6 +1263,44 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1342953689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342953684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 0248cd7af7de0432ea235d9fc6374690, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1342953690
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1342953684}
+  m_CullTransparentMesh: 1
 --- !u!1 &1470928807
 GameObject:
   m_ObjectHideFlags: 0
@@ -1860,12 +1900,19 @@ MonoBehaviour:
   defaultVelocity: -5
   velocityDivider: 200
   easySegments:
+  - {fileID: 6482919470425080534, guid: 2ed0928b19f59439182e8c170fb911f9, type: 3}
   - {fileID: 2594396646122309052, guid: 5e31ae18b6e164a28b9d30e2b62eb006, type: 3}
+  - {fileID: 1339380904937345627, guid: 6f372c4324a7746b8a7a6893301cddcd, type: 3}
+  - {fileID: 8630084862458778461, guid: fcbec941ee4094ab09e887f59c3b02cf, type: 3}
   waterSegments:
   - {fileID: 1482534047843286631, guid: 4753725b3b9e8cf44b32e329a638769c, type: 3}
   - {fileID: 7237898463069467756, guid: eb6a99f8c326bf14182550f734723451, type: 3}
+  - {fileID: 480715433764648986, guid: 19c25bb0c894d4926b3447c2369247eb, type: 3}
+  - {fileID: 7233189618942317947, guid: f9b5105c5e9824fd886f44310e5d058d, type: 3}
+  - {fileID: 4534385126411684122, guid: 3bcce40a5825b401d92a9f541684ac8a, type: 3}
   hardSegments:
   - {fileID: 6738219349498563617, guid: bc35ccdcaecef4625b36d054312c3ad0, type: 3}
+  - {fileID: 6702703504495431586, guid: dbc3e9b1a7b3148098cf7475b859bd10, type: 3}
   currentScore: 0
   fixedDeltaTime: 0.001
   waterLevel: 0
