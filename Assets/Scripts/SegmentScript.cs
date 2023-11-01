@@ -32,6 +32,7 @@ public class SegmentScript : MonoBehaviour
                 seg.GetComponent<Rigidbody2D>().velocity = new Vector2(manager.getObstacleVelocity(), 0);
                 spawned = true;
             }
+            this.GetComponent<Rigidbody2D>().velocity = new Vector2(manager.getObstacleVelocity(), 0);
         }
         else
         {
