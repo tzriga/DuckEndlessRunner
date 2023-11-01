@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8934710273732236451}
   - component: {fileID: 6738219349498563617}
   m_Layer: 0
-  m_Name: Hard_Land_1
+  m_Name: Easy_Land_3
   m_TagString: Segment
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
