@@ -911,7 +911,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 49.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -990,18 +990,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31032a6006a17764690bed2d8ee9fc6f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  redbull: {fileID: 3475259163953623190, guid: cdedee3dfd705c2469d1bdde1314f80a, type: 3}
   obstacleVelocity: 0
   defaultVelocity: -5
-  velocityDivider: 250
+  velocityDivider: 200
   easySegments:
   - {fileID: 2594396646122309052, guid: 5e31ae18b6e164a28b9d30e2b62eb006, type: 3}
-  mediumSegments:
-  - {fileID: 2594396646122309052, guid: 5e31ae18b6e164a28b9d30e2b62eb006, type: 3}
-  - {fileID: 6738219349498563617, guid: bc35ccdcaecef4625b36d054312c3ad0, type: 3}
+  waterSegments:
+  - {fileID: 1482534047843286631, guid: 4753725b3b9e8cf44b32e329a638769c, type: 3}
+  - {fileID: 7237898463069467756, guid: eb6a99f8c326bf14182550f734723451, type: 3}
   hardSegments:
   - {fileID: 6738219349498563617, guid: bc35ccdcaecef4625b36d054312c3ad0, type: 3}
   currentScore: 0
   fixedDeltaTime: 0.001
+  waterLevel: 0
 --- !u!4 &1180862863
 Transform:
   m_ObjectHideFlags: 0
@@ -1015,7 +1017,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1293293386
 GameObject:
@@ -1864,15 +1866,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2581213850673453144, guid: 0b42e0eaecd7a244898b902bfbb097f3, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2581213850673453144, guid: 0b42e0eaecd7a244898b902bfbb097f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.6543
+      value: -2.6
       objectReference: {fileID: 0}
     - target: {fileID: 2581213850673453144, guid: 0b42e0eaecd7a244898b902bfbb097f3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.5766
+      value: 0.86
       objectReference: {fileID: 0}
     - target: {fileID: 2581213850673453144, guid: 0b42e0eaecd7a244898b902bfbb097f3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1915,6 +1917,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1435764946}
     - target: {fileID: 2581213850673453150, guid: 0b42e0eaecd7a244898b902bfbb097f3, type: 3}
+      propertyPath: flyForce
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2581213850673453150, guid: 0b42e0eaecd7a244898b902bfbb097f3, type: 3}
       propertyPath: endScreen
       value: 
       objectReference: {fileID: 1357698610}
@@ -1938,6 +1944,10 @@ PrefabInstance:
       propertyPath: highScoreText
       value: 
       objectReference: {fileID: 539709824}
+    - target: {fileID: 2581213850673453150, guid: 0b42e0eaecd7a244898b902bfbb097f3, type: 3}
+      propertyPath: highScoreTextStart
+      value: 
+      objectReference: {fileID: 88283098}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0b42e0eaecd7a244898b902bfbb097f3, type: 3}
 --- !u!1001 &6504341588389046493
@@ -1957,7 +1967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1148258204140227131, guid: 347a091f7fdb4c24f86add7b5e6863a2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.0193
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1148258204140227131, guid: 347a091f7fdb4c24f86add7b5e6863a2, type: 3}
       propertyPath: m_LocalPosition.y

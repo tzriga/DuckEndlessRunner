@@ -4,44 +4,67 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameObject redbull;
     [SerializeField]
     private float obstacleVelocity;
     public float defaultVelocity = -5f;
     public float velocityDivider;
     public List<SegmentScript> easySegments;
-    public List<SegmentScript> mediumSegments;
+    public List<SegmentScript> waterSegments;
     public List<SegmentScript> hardSegments;
     public int currentScore = 0;
 
     public float fixedDeltaTime = .001f;
+
+    public bool waterLevel = false;
     
 
     public SegmentScript getSegment() {
-        if (currentScore < 250) {
+        if (currentScore < 0) {
             return easySegments[Random.Range(0, easySegments.Count)];
-        } else if (currentScore >= 250 && currentScore < 1000) {
+        } else if (currentScore >= 0 && currentScore < 1000) {
             int rng = Random.Range(0, 8);
             if (rng < 2) {
+                waterLevel = false;
                 return easySegments[Random.Range(0, easySegments.Count)];
             } else if (rng >= 2 && rng < 6) {
-                return mediumSegments[Random.Range(0, mediumSegments.Count)];
+                if(!waterLevel){
+                    GameObject temp = Instantiate(redbull, new Vector3(15f, 0, 0), transform.rotation);
+                    temp.GetComponent<Rigidbody2D>().velocity = new Vector3(getObstacleVelocity(), 0,0);
+                    waterLevel = true;
+                }
+                return waterSegments[Random.Range(0, waterSegments.Count)];
             } else {
+                waterLevel = false;
                 return hardSegments[Random.Range(0, hardSegments.Count)];
             }
         } else if (currentScore >= 1000 && currentScore < 4000) {
             int rng = Random.Range(0, 8);
             if (rng < 2) {
+                waterLevel = false;
                 return easySegments[Random.Range(0, easySegments.Count)];
             } else if (rng >= 2 && rng < 4) {
-                return mediumSegments[Random.Range(0, mediumSegments.Count)];
+                if(!waterLevel){
+                    GameObject temp = Instantiate(redbull, new Vector3(15f, 0, 0), transform.rotation);
+                    temp.GetComponent<Rigidbody2D>().velocity = new Vector3(getObstacleVelocity(), 0,0);
+                    waterLevel = true;
+                }
+                return waterSegments[Random.Range(0, waterSegments.Count)];
             } else {
+                waterLevel = false;
                 return hardSegments[Random.Range(0, hardSegments.Count)];
             }
         } else {
             int rng = Random.Range(0, 8);
             if (rng < 2) {
-                return mediumSegments[Random.Range(0, mediumSegments.Count)];
+                if(!waterLevel){
+                    GameObject temp = Instantiate(redbull, new Vector3(15f, 0, 0), transform.rotation);
+                    temp.GetComponent<Rigidbody2D>().velocity = new Vector3(getObstacleVelocity(), 0,0);
+                    waterLevel = true;
+                }
+                return waterSegments[Random.Range(0, waterSegments.Count)];
             } else {
+                waterLevel = false;
                 return hardSegments[Random.Range(0, hardSegments.Count)];
             }
         }

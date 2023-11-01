@@ -8,6 +8,9 @@ TagManager:
   - Manager
   - Obstacle
   - Ground
+  - RedBull
+  - Undefined
+  - FlyEnd
   layers:
   - Default
   - TransparentFX
