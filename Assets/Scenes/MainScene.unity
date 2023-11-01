@@ -180,7 +180,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 1854157a7b5535b4db77ed095de32005, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1077,11 +1077,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2581213850673453144, guid: 0b42e0eaecd7a244898b902bfbb097f3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.6
+      value: -2.77
       objectReference: {fileID: 0}
     - target: {fileID: 2581213850673453144, guid: 0b42e0eaecd7a244898b902bfbb097f3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.86
+      value: -8.06
       objectReference: {fileID: 0}
     - target: {fileID: 2581213850673453144, guid: 0b42e0eaecd7a244898b902bfbb097f3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1898,18 +1898,19 @@ MonoBehaviour:
   redbull: {fileID: 3475259163953623190, guid: cdedee3dfd705c2469d1bdde1314f80a, type: 3}
   obstacleVelocity: 0
   defaultVelocity: -5
-  velocityDivider: 200
+  velocityDivider: 50
   easySegments:
-  - {fileID: 6482919470425080534, guid: 2ed0928b19f59439182e8c170fb911f9, type: 3}
+  - {fileID: 6275469506957217165, guid: 2ed0928b19f59439182e8c170fb911f9, type: 3}
   - {fileID: 2594396646122309052, guid: 5e31ae18b6e164a28b9d30e2b62eb006, type: 3}
   - {fileID: 1339380904937345627, guid: 6f372c4324a7746b8a7a6893301cddcd, type: 3}
-  - {fileID: 8630084862458778461, guid: fcbec941ee4094ab09e887f59c3b02cf, type: 3}
+  - {fileID: 3483001892107405248, guid: fcbec941ee4094ab09e887f59c3b02cf, type: 3}
   waterSegments:
   - {fileID: 1482534047843286631, guid: 4753725b3b9e8cf44b32e329a638769c, type: 3}
   - {fileID: 7237898463069467756, guid: eb6a99f8c326bf14182550f734723451, type: 3}
   - {fileID: 480715433764648986, guid: 19c25bb0c894d4926b3447c2369247eb, type: 3}
   - {fileID: 7233189618942317947, guid: f9b5105c5e9824fd886f44310e5d058d, type: 3}
   - {fileID: 4534385126411684122, guid: 3bcce40a5825b401d92a9f541684ac8a, type: 3}
+  - {fileID: 5645307822534467704, guid: 22874babc994445cdaeb46e72488293f, type: 3}
   hardSegments:
   - {fileID: 6738219349498563617, guid: bc35ccdcaecef4625b36d054312c3ad0, type: 3}
   - {fileID: 6702703504495431586, guid: dbc3e9b1a7b3148098cf7475b859bd10, type: 3}

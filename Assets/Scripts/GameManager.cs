@@ -20,9 +20,9 @@ public class GameManager : MonoBehaviour
     
 
     public SegmentScript getSegment() {
-        if (currentScore < 0) {
+        if (currentScore < 300) {
             return easySegments[Random.Range(0, easySegments.Count)];
-        } else if (currentScore >= 0 && currentScore < 1000) {
+        } else if (currentScore >= 300 && currentScore < 1000) {
             int rng = Random.Range(0, 8);
             if (rng < 2) {
                 waterLevel = false;
